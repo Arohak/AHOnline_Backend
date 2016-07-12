@@ -4,12 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :categories, only: [:index, :show] do
+        resources :subcategories, only: [:index, :show]
+      end
       get 'restaurants/home', to: 'restaurants#home'
-
-      # resources :profiles do
-        # get :me, on: :collection
-      # end
-
     end
   end
 

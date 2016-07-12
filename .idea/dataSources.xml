@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1391033679">
-    <data-source source="LOCAL" name="development" uuid="9b4d6f48-4c01-4c76-8a1d-fae09bbc0162">
+  <component name="DataSourceManagerImpl" format="xml" hash="1494629007">
+    <data-source source="LOCAL" name="development" uuid="02ba34b3-0f63-46dd-89f9-7bbcbc38efef">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
-      <explain-plan-config>
-        <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
-      </explain-plan-config>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.11.2.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

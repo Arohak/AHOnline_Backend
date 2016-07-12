@@ -9,19 +9,19 @@ class GetdataController < ApplicationController
     response = getCorrectText(response)
     json = JSON.parse(response)
 
-    categories    = json['categories']
-    restaurants   = json['restaurants']
-    shops         = json['shops']
+    subcategories  = json['categories']
+    restaurants    = json['restaurants']
+    shops          = json['shops']
 
-    parseCategories(categories)
+    parseSubcategories(subcategories)
     parseRestaurants(restaurants)
     parseShops(shops)
     parseShopsInRestaurants()
 
-    hasManyCategoriesRestaurants(categories, restaurants)
+    hasManySubcategoriesRestaurants(subcategories, restaurants)
 
     # render nothing: true
-    renderCategories
+    renderSubcategoryRestaurants
   end
 
   def getCorrectText(text)
@@ -32,25 +32,28 @@ class GetdataController < ApplicationController
     return str
   end
 
-  def parseCategories(categories)
-    if Category.all.count > 0
-      categories.each do |category|
-        cat = Category.find_by(category_id:  category['id'])
+  def parseSubcategories(subcategories)
+    if Subcategory.all.count > 0
+      subcategories.each do |subcategory|
+        cat = Subcategory.find_by(subcategory_id:  subcategory['id'])
+        category_id = subcategory['type'] == 'restaurants' ? 1 : 2
 
-        cat.update(label:        category['label'],
-                   title:        category['title'],
-                   types:        category['type'],
-                   position:     category['position'],
-                   src:          category['src'])
+        cat.update(category_id:     category_id,
+                   name:        subcategory['label'],
+                   title:       subcategory['title'],
+                   position:    subcategory['position'],
+                   src:         subcategory['src'])
       end
     else
-      categories.each do |category|
-        Category.create(category_id:  category['id'],
-                        label:        category['label'],
-                        title:        category['title'],
-                        types:        category['type'],
-                        position:     category['position'],
-                        src:          category['src'])
+      subcategories.each do |subcategory|
+        category_id = subcategory['type'] == 'restaurants' ? 1 : 2
+
+        Subcategory.create(category_id:     category_id,
+                           subcategory_id:  subcategory['id'],
+                           name:            subcategory['label'],
+                           title:           subcategory['title'],
+                           position:        subcategory['position'],
+                           src:             subcategory['src'])
       end
     end
 
@@ -105,7 +108,7 @@ class GetdataController < ApplicationController
       shops.each do |shop|
         s = Shop.find_by(shop_id:  shop['id'])
         if s
-          s.update(shop_id:            shop['id'],
+          s.update(shop_id:          shop['id'],
                    label:            shop['label'],
                    description:      shop['description'],
                    hash_:            shop['hash'],
@@ -167,12 +170,11 @@ class GetdataController < ApplicationController
       end
     end
 
-  def hasManyCategoriesRestaurants(categories, restaurants)
-
-    categories.each_with_index do |category, index|
-      cat = Category.find_by(category_id: category['id'])
+  def hasManySubcategoriesRestaurants(subcategories, restaurants)
+    subcategories.each_with_index do |subcategory, index|
+      cat = Subcategory.find_by(subcategory_id: subcategory['id'])
       cat.restaurants.clear
-      category['restaurants'].each do |id|
+      subcategory['restaurants'].each do |id|
         if restaurant = Restaurant.find_by(restaurant_id: id)
           cat.restaurants << restaurant
         end
@@ -180,26 +182,38 @@ class GetdataController < ApplicationController
     end
 
     restaurants.each do |restaurant|
+      res = Restaurant.find_by(restaurant_id: restaurant['id'])
+      res.subcategories.clear
       restaurant['categories'].each do |id|
-        res = Restaurant.find_by(restaurant_id: restaurant['id'])
-        category = Category.find_by(category_id: id)
-        if category
-          res.categories << category
+        if subcategory = Subcategory.find_by(subcategory_id: id)
+          res.subcategories << subcategory
         end
       end
     end
   end
 
-  def renderCategories
-    categories = Category.all
+  def renderSubcategories
+    subcategories = Subcategory.all
 
-    render json: categories[0].restaurants
+    render json: subcategories
   end
 
   def renderRestaurants
     restaurants = Restaurant.all
 
     render json: restaurants
+  end
+
+  def renderSubcategoryRestaurants
+    subcategories = Subcategory.all
+
+    render json: subcategories.first.restaurants
+  end
+
+  def renderRestaurantSubcategories
+    restaurants = Restaurant.all
+
+    render json: restaurants.first.subcategories
   end
 
   def deleteObjects
