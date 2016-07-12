@@ -177,6 +177,8 @@ class GetdataController < ApplicationController
       subcategory['restaurants'].each do |id|
         if restaurant = Restaurant.find_by(restaurant_id: id)
           cat.restaurants << restaurant
+        elsif shop = Shop.find_by(shop_id: id)
+          cat.restaurants << shop
         end
       end
     end
