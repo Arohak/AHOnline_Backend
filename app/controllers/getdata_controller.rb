@@ -1,10 +1,9 @@
 class GetdataController < ApplicationController
 
   GET_ALL               = "get-data"
+  GET_CATEGORY_ITEMS    = "get-restaurant-menu-categories?rest="
 
   def parse
-    # deleteObjects
-
     response  = RestClient.get $ROOT_URL + GET_ALL
     response = getCorrectText(response)
     json = JSON.parse(response)
@@ -17,11 +16,22 @@ class GetdataController < ApplicationController
     parseRestaurants(restaurants)
     parseShops(shops)
     parseShopsInRestaurants()
-
     hasManySubcategoriesRestaurants(subcategories, restaurants)
 
-    # render nothing: true
-    renderSubcategoryRestaurants
+    render text: 'OK'
+  end
+
+  def parsecategory
+    Restaurant.all.each do |r|
+      response  = RestClient.get $ROOT_URL + GET_CATEGORY_ITEMS + r.restaurant_id.to_s
+      response = getCorrectText(response)
+      json = JSON.parse(response)
+      categories  = json['categories']
+
+      parseCategoryitems(r, categories)
+    end
+
+    render text: 'OK'
   end
 
   def getCorrectText(text)
@@ -221,6 +231,16 @@ class GetdataController < ApplicationController
   def deleteObjects
     Restaurant.delete_all
     Category.delete_all
+  end
+
+  def parseCategoryitems(restaurant, categoryitems)
+    categoryitems.each do |categoryitem|
+      Categoryitem.create(categoryitem_id:  categoryitem['id'],
+                          rest_id:          categoryitem['restaurant_menu_categories'],
+                          restaurant_id:    restaurant.id,
+                          name:             categoryitem['label'])
+    end
+
   end
 
 end

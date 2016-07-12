@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/parse', to: 'getdata#parse'
+  get '/parse_c', to: 'getdata#parsecategory'
 
   namespace :api do
     namespace :v1 do

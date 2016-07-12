@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="development" uuid="7ed63f21-b721-45b7-a8a4-be5ea8258e45">
-      <auth-required>false</auth-required>
-    </data-source>
+    <data-source name="development" uuid="0c711004-e176-46aa-8e3b-f04cd3b0d00b" />
   </component>
 </project>
