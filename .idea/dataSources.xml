@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="949867706">
-    <data-source source="LOCAL" name="development" uuid="0c711004-e176-46aa-8e3b-f04cd3b0d00b">
-      <driver-ref>69ae27b8-9fe5-4d16-b47f-aa097ac93a41</driver-ref>
+  <component name="DataSourceManagerImpl" format="xml" hash="4046224705">
+    <data-source source="LOCAL" name="development" uuid="471e8ce1-1ae0-4884-8101-99df1ca4c692">
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
@@ -14,9 +14,6 @@
         </library>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.11.2.jar</url>
-        </library>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/sqlite-jdbc-3.8.9.jar</url>
         </library>
       </libraries>
     </data-source>
