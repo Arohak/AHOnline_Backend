@@ -1,7 +1,8 @@
 class GetdataController < ApplicationController
 
-  GET_ALL               = "get-data"
-  GET_CATEGORY_ITEMS    = "get-restaurant-menu-categories?rest="
+  GET_ALL               = 'get-data'
+  GET_CATEGORY_ITEMS    = 'get-restaurant-menu-categories?rest='
+  GET_PRODUCTS          = 'get-restaurant-menu?rest=1006&restaurant_menu_categories=7345'
 
   def parse
     response  = RestClient.get $ROOT_URL + GET_ALL
@@ -21,7 +22,7 @@ class GetdataController < ApplicationController
     render text: 'OK'
   end
 
-  def parsecategory
+  def parse_menu
     Restaurant.all.each do |r|
       response  = RestClient.get $ROOT_URL + GET_CATEGORY_ITEMS + r.restaurant_id.to_s
       response = getCorrectText(response)
@@ -29,6 +30,21 @@ class GetdataController < ApplicationController
       categories  = json['categories']
 
       parseCategoryitems(r, categories)
+    end
+
+    render text: 'OK'
+  end
+
+  def parse_product
+    Restaurant.all.each do |r|
+      r.categoryitems.each do |m|
+      response  = RestClient.get $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}"
+      response = getCorrectText(response)
+      json = JSON.parse(response)
+      products  = json['products']
+
+      parseProducts(m, products)
+      end
     end
 
     render text: 'OK'
@@ -240,7 +256,25 @@ class GetdataController < ApplicationController
                           restaurant_id:    restaurant.id,
                           name:             categoryitem['label'])
     end
+  end
 
+  def parseProducts(categoryitem, products)
+    products.each do |product|
+      Product.create(product_id:                  product['id'],
+                     rest_id:                     product['rest_id'],
+                     categoryitem_id:             categoryitem.id,
+                     restaurant_menu_categories:  product['restaurant_menu_categories'],
+                     label:                       product['label'],
+                     item_number:                 product['item_number'],
+                     inventory:                   product['inventory'],
+                     instock:                     product['instock'],
+                     desired_stock:               product['desired_stock'],
+                     price:                       product['price'],
+                     type_:                       product['type'],
+                     alias:                       product['alias'],
+                     keywords:                    product['keywords'],
+                     src:                         product['src'])
+    end
   end
 
 end
