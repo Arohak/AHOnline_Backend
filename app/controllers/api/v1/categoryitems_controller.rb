@@ -10,13 +10,7 @@ class API::V1::CategoryitemsController < ApplicationController
   end
 
   def show
-    subcategory = Subcategory.find(params[:id])
-    data = subcategory.to_json(include: :restaurants)
-    response = { data:    JSON(data),
-                 result:  {status: "SUCCESS",
-                           message: ""} }
 
-    render json: response
   end
 
 end

@@ -14,6 +14,10 @@ Rails.application.routes.draw do
         resources :categoryitems, only: [:index, :show]
       end
 
+      resources :categoryitems do
+        resources :products, only: [:index, :show]
+      end
+
       get 'restaurants/home', to: 'restaurants#home'
     end
   end
