@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="293750039">
-    <data-source source="LOCAL" name="development" uuid="4a411a04-bbb2-47ed-9309-e2d399cd5a7b">
-      <driver-ref>bf6ecaba-6636-425d-9907-7dfc7ae4b049</driver-ref>
+  <component name="DataSourceManagerImpl" format="xml" hash="1690269807">
+    <data-source source="LOCAL" name="development" uuid="45868b15-50c1-4edb-a019-1586cde359bc">
+      <driver-ref>69ae27b8-9fe5-4d16-b47f-aa097ac93a41</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>SQLite</remarks>
