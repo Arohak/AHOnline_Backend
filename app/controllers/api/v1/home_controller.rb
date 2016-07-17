@@ -1,6 +1,6 @@
-class API::V1::RestaurantsController < ApplicationController
+class API::V1::HomeController < ApplicationController
 
-  def home
+  def index
     news =  Restaurant.where(new: true).limit(5)
     rates =  Restaurant.where(rate: 4).limit(5)
     opens =  Restaurant.where(status: 'open').limit(5)
@@ -11,16 +11,6 @@ class API::V1::RestaurantsController < ApplicationController
 
                  result: {status: "SUCCESS",
                           message: ""} }
-
-    render json: response
-  end
-
-  def show
-    restaurant = Restaurant.find(params[:id])
-    data = restaurant.to_json(include: :categoryitems, except: [:created_at, :updated_at])
-    response = { data:    JSON(data),
-                 result:  {status: "SUCCESS",
-                           message: ""} }
 
     render json: response
   end

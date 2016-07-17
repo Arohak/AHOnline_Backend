@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         resources :subcategories, only: [:index, :show]
       end
 
-      resources :restaurants, except: [:show] do
+      resources :restaurants do
         resources :categoryitems, only: [:index, :show]
       end
 
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
       resources :deliveries, only: [:index, :show]
 
-      get 'restaurants/home', to: 'restaurants#home'
+      get '/home', to: 'home#index'
     end
   end
 
