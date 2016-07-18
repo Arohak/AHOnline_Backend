@@ -1,9 +1,6 @@
-class GetdataController < ApplicationController
+class ParseController < ApplicationController
 
   GET_ALL               = 'get-data'
-  GET_DELIVERY          = 'delivery-price'
-  GET_CATEGORY_ITEMS    = 'get-restaurant-menu-categories?rest='
-  GET_PRODUCTS          = 'get-restaurant-menu?rest=1006&restaurant_menu_categories=7345'
 
   def parse
     response  = RestClient.get $ROOT_URL + GET_ALL
@@ -19,46 +16,6 @@ class GetdataController < ApplicationController
     parseShops(shops)
     parseShopsInRestaurants()
     hasManySubcategoriesRestaurants(subcategories, restaurants)
-
-    render text: 'OK'
-  end
-
-  def parse_delivery
-    response  = RestClient.get $ROOT_URL + GET_DELIVERY
-    response = getCorrectText(response)
-    json = JSON.parse(response)
-    deliveries  = json['regions']
-
-    parseDeliveries(deliveries)
-
-    renderDeliveries()
-    # render text: 'OK'
-  end
-
-  def parse_menu
-    Restaurant.all.each do |r|
-      response  = RestClient.get $ROOT_URL + GET_CATEGORY_ITEMS + r.restaurant_id.to_s
-      response = getCorrectText(response)
-      json = JSON.parse(response)
-      categories  = json['categories']
-
-      parseCategoryitems(r, categories)
-    end
-
-    render text: 'OK'
-  end
-
-  def parse_product
-    Restaurant.all.each do |r|
-      r.categoryitems.each do |m|
-      response  = RestClient.get $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}"
-      response = getCorrectText(response)
-      json = JSON.parse(response)
-      products  = json['products']
-
-      parseProducts(m, products)
-      end
-    end
 
     render text: 'OK'
   end
@@ -233,23 +190,6 @@ class GetdataController < ApplicationController
     end
   end
 
-  def parseDeliveries(deliveries)
-    if Delivery.all.count > 0
-      deliveries.each do |delivery|
-        d = Delivery.find(delivery['id'])
-        d.update(city:        delivery['city'],
-                 alias:       delivery['alias'],
-                 price:       delivery['price'])
-      end
-    else
-      deliveries.each do |delivery|
-        Delivery.create(city:           delivery['city'],
-                        alias:          delivery['alias'],
-                        price:          delivery['price'])
-      end
-    end
-
-  end
 
   def renderSubcategories
     subcategories = Subcategory.all
@@ -261,12 +201,6 @@ class GetdataController < ApplicationController
     restaurants = Restaurant.all
 
     render json: restaurants
-  end
-
-  def renderDeliveries
-    deliveries = Delivery.all
-
-    render json: deliveries
   end
 
   def renderSubcategoryRestaurants
@@ -284,34 +218,6 @@ class GetdataController < ApplicationController
   def deleteObjects
     Restaurant.delete_all
     Category.delete_all
-  end
-
-  def parseCategoryitems(restaurant, categoryitems)
-    categoryitems.each do |categoryitem|
-      Categoryitem.create(categoryitem_id:  categoryitem['id'],
-                          rest_id:          categoryitem['restaurant_menu_categories'],
-                          restaurant_id:    restaurant.id,
-                          name:             categoryitem['label'])
-    end
-  end
-
-  def parseProducts(categoryitem, products)
-    products.each do |product|
-      Product.create(product_id:                  product['id'],
-                     rest_id:                     product['rest_id'],
-                     categoryitem_id:             categoryitem.id,
-                     restaurant_menu_categories:  product['restaurant_menu_categories'],
-                     label:                       product['label'],
-                     item_number:                 product['item_number'],
-                     inventory:                   product['inventory'],
-                     instock:                     product['instock'],
-                     desired_stock:               product['desired_stock'],
-                     price:                       product['price'],
-                     type_:                       product['type'],
-                     alias:                       product['alias'],
-                     keywords:                    product['keywords'],
-                     src:                         product['src'])
-    end
   end
 
 end
