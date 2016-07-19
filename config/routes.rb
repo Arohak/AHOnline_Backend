@@ -24,7 +24,10 @@ Rails.application.routes.draw do
 
       resources :deliveries, only: [:index, :show]
 
-      get '/home', to: 'home#index'
+      get '/home', to: 'objects#home'
+      get '/newobjects', to: 'objects#news'
+      get '/rateobjects', to: 'objects#rate'
+      get '/openobjects', to: 'objects#open'
     end
   end
 
