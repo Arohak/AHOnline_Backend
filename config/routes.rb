@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       get '/newobjects', to: 'objects#news'
       get '/rateobjects', to: 'objects#rate'
       get '/openobjects', to: 'objects#open'
+
+      get '/nears_objects', to: 'restaurants#nearst'
+
     end
   end
 

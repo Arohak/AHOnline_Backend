@@ -5,6 +5,7 @@ class CreateAddresses < ActiveRecord::Migration[5.0]
       t.string  :name
       t.decimal :latitude
       t.decimal :longitude
+      t.decimal :distance
 
       t.timestamps
     end

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160718111808) do
     t.string   "name"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.decimal  "distance"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
