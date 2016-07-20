@@ -11,7 +11,8 @@ class API::V1::SubcategoriesController < ApplicationController
 
   def show
     restaurants = Subcategory.find(params[:id]).restaurants.limit(params[:limit]).offset(params[:offset])
-    response = { data:    restaurants,
+    data = restaurants.to_json(include: [:categoryitems, :addresses])
+    response = { data:    JSON(data),
                  result:  {status: "SUCCESS",
                            message: ""} }
 
