@@ -48,30 +48,39 @@ class API::V1::RestaurantsController < ApplicationController
 
     Restaurant.all.each do |restaurant|
       addresses.clear
-
       restaurant.addresses.each do |address|
         unless address.nil? && address.nil?
           meter = distance_between(latitude, longitude, address.latitude, address.longitude)
           if !meter.nil? && meter < m
-            add = address.dup
-            add.update(distance: meter)
+
+            add = {id: address.id,
+                   restaurant_id: address.restaurant_id,
+                   name: address.name,
+                   latitude: address.latitude,
+                   longitude: address.longitude,
+                   distance: meter}
+
             addresses << add
           end
         end
       end
-
       if !addresses.empty?
-        rest = restaurant.dup
-        rest.update(id: restaurant.id)
-        rest.addresses = addresses
+        rest = {id: restaurant.id,
+                restaurant_id: restaurant.restaurant_id,
+                label: restaurant.label,
+                description: restaurant.description,
+                status: restaurant.status,
+                new: restaurant.new,
+                rate: restaurant.rate,
+                src: restaurant.src,
+                addresses: addresses.clone,
+                categoryitems: restaurant.categoryitems}
+
         restaurants << rest
       end
-
     end
 
-    data = restaurants.to_json(include: [:categoryitems, :addresses])
-
-    response = { data:    JSON(data),
+    response = { data:    restaurants,
                  result:  {status: "SUCCESS",
                            message: ""} }
 
