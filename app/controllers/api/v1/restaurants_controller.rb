@@ -15,7 +15,11 @@ class API::V1::RestaurantsController < ApplicationController
       when 'all'
         @restaurants =  Restaurant.all.limit(l).offset(o)
       when nil
-        @restaurants =  Restaurant.all
+        if params[:search]
+          @restaurants =  Restaurant.search(params[:search]).limit(l).offset(o)
+        else
+          @restaurants =  Restaurant.all.limit(l).offset(o)
+        end
     end
 
     data = @restaurants.to_json(include: [:categoryitems, :addresses])

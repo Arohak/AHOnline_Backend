@@ -4,4 +4,9 @@ class Restaurant < ApplicationRecord
   has_many :addresses
 
   validates_uniqueness_of :restaurant_id
+
+  def self.search(search)
+    where("label LIKE ?", "%#{search}%")
+    where("description LIKE ?", "%#{search}%")
+  end
 end

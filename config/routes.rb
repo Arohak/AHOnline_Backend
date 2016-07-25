@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         resources :products, only: [:index, :show]
       end
 
+      resources :products, only: [:index, :show]
+
       resources :deliveries, only: [:index, :show]
 
       get '/home', to: 'objects#home'
