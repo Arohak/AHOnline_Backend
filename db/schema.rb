@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718111808) do
+ActiveRecord::Schema.define(version: 20160729134454) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160718111808) do
     t.string   "city"
     t.string   "alias"
     t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deliveryaddresses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "country"
+    t.string   "city"
+    t.string   "address"
+    t.boolean  "def"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -123,6 +133,26 @@ ActiveRecord::Schema.define(version: 20160718111808) do
     t.string   "src"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "mobile_number"
+    t.string   "verification_code"
+    t.boolean  "is_verified"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

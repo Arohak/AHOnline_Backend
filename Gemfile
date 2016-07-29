@@ -30,6 +30,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# TWILIO
+gem "devise"
+gem 'twilio-ruby'
+gem 'phonelib'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # API
 gem 'rest-client'
 

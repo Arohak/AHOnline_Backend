@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: { registrations: "acme/registrations"}
+  post 'verifications' => 'verifications#create'
+  put 'verifications' => 'verifications#verify'
+
+  devise_for :users
   namespace :get do
     get '/all',       to: 'parse#parse'
     get '/menu',      to: 'parsemenu#parse'
@@ -10,6 +15,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+
+      resources :users
+
+      resources :deliveryaddresses
+
       resources :categories, only: [:index, :show] do
         resources :subcategories, only: [:index, :show]
       end
