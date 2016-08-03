@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/globalize/globalize.git
+  revision: 51aa34b34ef6b00b8e6e307ac9145eeffade833c
+  specs:
+    globalize (5.1.0)
+      activemodel (>= 4.2, < 5.1)
+      activerecord (>= 4.2, < 5.1)
+      request_store (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +38,11 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.0.0)
       activesupport (= 5.0.0)
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.0.0)
       activemodel (= 5.0.0)
       activesupport (= 5.0.0)
@@ -38,7 +52,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    arel (7.0.0)
+    arel (7.1.1)
     builder (3.2.2)
     byebug (9.0.5)
     coffee-rails (4.2.1)
@@ -58,13 +72,13 @@ GEM
       railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.10)
-    globalid (0.3.6)
+    ffi (1.9.14)
+    globalid (0.3.7)
       activesupport (>= 4.1.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    jbuilder (2.5.0)
+    jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     jquery-rails (4.1.1)
@@ -93,7 +107,7 @@ GEM
       pkg-config (~> 1.1.7)
     phonelib (0.6.2)
     pkg-config (1.1.7)
-    puma (3.4.0)
+    puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -124,12 +138,15 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    request_store (1.3.1)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.4.22)
-    sass-rails (5.0.5)
+    sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
@@ -139,7 +156,7 @@ GEM
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
       spring (~> 1.2)
-    sprockets (3.6.3)
+    sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.1.1)
@@ -150,7 +167,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    turbolinks (5.0.0)
+    turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     twilio-ruby (4.11.1)
@@ -159,15 +176,16 @@ GEM
       multi_json (>= 1.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
+    uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    web-console (3.3.0)
-      activemodel (>= 4.2)
+    web-console (3.3.1)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
       debug_inspector
-      railties (>= 4.2)
+      railties (>= 5.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -176,9 +194,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemodel-serializers-xml
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
+  globalize!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -186,6 +206,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   rest-client
+  russian (~> 0.6.0)
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
