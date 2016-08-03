@@ -17,11 +17,13 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.string   "name"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.decimal  "distance"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
