@@ -18,6 +18,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string  :alias
       t.string  :keywords
       t.string  :src
+      t.boolean :favorite
 
       t.timestamps
     end

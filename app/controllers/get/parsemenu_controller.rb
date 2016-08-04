@@ -1,10 +1,9 @@
 class Get::ParsemenuController < ApplicationController
 
-  GET_CATEGORY_ITEMS    = 'get-restaurant-menu-categories?rest='
-
   def parse
     Restaurant.all.each do |r|
-      response  = RestClient.get $ROOT_URL + GET_CATEGORY_ITEMS + r.restaurant_id.to_s
+      url = $ROOT_URL + GET_CATEGORY_ITEMS + r.restaurant_id.to_s + "?lng=#{params[:lng]}"
+      response  = RestClient.get url
       response = getCorrectText(response)
       json = JSON.parse(response)
       categories  = json['categories']
@@ -24,11 +23,21 @@ class Get::ParsemenuController < ApplicationController
   end
 
   def parseCategoryitems(restaurant, categoryitems)
-    categoryitems.each do |categoryitem|
-      Categoryitem.create(categoryitem_id:  categoryitem['id'],
-                          rest_id:          categoryitem['restaurant_menu_categories'],
-                          restaurant_id:    restaurant.id,
-                          name:             categoryitem['label'])
+    if Categoryitem.all.count > 0
+      categoryitems.each do |categoryitem|
+        if c = Categoryitem.find_by(categoryitem_id: categoryitem['id'])
+          c.update(rest_id:          categoryitem['restaurant_menu_categories'],
+                    restaurant_id:    restaurant.id,
+                    name:             categoryitem['label'])
+        end
+      end
+    else
+      categoryitems.each do |categoryitem|
+        Categoryitem.create(categoryitem_id:  categoryitem['id'],
+                            rest_id:          categoryitem['restaurant_menu_categories'],
+                            restaurant_id:    restaurant.id,
+                            name:             categoryitem['label'])
+      end
     end
   end
 

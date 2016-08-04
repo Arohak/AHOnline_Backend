@@ -11,403 +11,419 @@
       <table id="3" parent="1" name="ar_internal_metadata"/>
       <table id="4" parent="1" name="categories"/>
       <table id="5" parent="1" name="category_translations"/>
-      <table id="6" parent="1" name="categoryitems"/>
-      <table id="7" parent="1" name="deliveries"/>
-      <table id="8" parent="1" name="deliveryaddresses"/>
-      <table id="9" parent="1" name="products"/>
-      <table id="10" parent="1" name="restaurants"/>
-      <table id="11" parent="1" name="restaurants_subcategories"/>
-      <table id="12" parent="1" name="schema_migrations"/>
-      <table id="13" parent="1" name="shops"/>
-      <table id="14" parent="1" name="sqlite_sequence"/>
-      <table id="15" parent="1" name="subcategories"/>
-      <table id="16" parent="1" name="users"/>
-      <column id="17" parent="2" name="id">
+      <table id="6" parent="1" name="categoryitem_translations"/>
+      <table id="7" parent="1" name="categoryitems"/>
+      <table id="8" parent="1" name="deliveries"/>
+      <table id="9" parent="1" name="delivery_translations"/>
+      <table id="10" parent="1" name="deliveryaddresses"/>
+      <table id="11" parent="1" name="favorites"/>
+      <table id="12" parent="1" name="product_translations"/>
+      <table id="13" parent="1" name="products"/>
+      <table id="14" parent="1" name="restaurant_translations"/>
+      <table id="15" parent="1" name="restaurants"/>
+      <table id="16" parent="1" name="restaurants_subcategories"/>
+      <table id="17" parent="1" name="schema_migrations"/>
+      <table id="18" parent="1" name="shops"/>
+      <table id="19" parent="1" name="sqlite_sequence"/>
+      <table id="20" parent="1" name="subcategories"/>
+      <table id="21" parent="1" name="subcategory_translations"/>
+      <table id="22" parent="1" name="users"/>
+      <column id="23" parent="2" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="18" parent="2" name="restaurant_id">
+      <column id="24" parent="2" name="restaurant_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="19" parent="2" name="name">
+      <column id="25" parent="2" name="name">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="20" parent="2" name="latitude">
+      <column id="26" parent="2" name="latitude">
         <data-type>DECIMAL(0,-1)|6</data-type>
       </column>
-      <column id="21" parent="2" name="longitude">
+      <column id="27" parent="2" name="longitude">
         <data-type>DECIMAL(0,-1)|6</data-type>
       </column>
-      <column id="22" parent="2" name="distance">
+      <column id="28" parent="2" name="distance">
         <data-type>DECIMAL(0,-1)|6</data-type>
       </column>
-      <column id="23" parent="2" name="created_at">
+      <column id="29" parent="2" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="24" parent="2" name="updated_at">
+      <column id="30" parent="2" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="25" parent="2">
+      <key id="31" parent="2">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="26" parent="3" name="key">
+      <column id="32" parent="3" name="key">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="27" parent="3" name="value">
+      <column id="33" parent="3" name="value">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="28" parent="3" name="created_at">
+      <column id="34" parent="3" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="29" parent="3" name="updated_at">
+      <column id="35" parent="3" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="30" parent="3">
+      <key id="36" parent="3">
         <columns>key</columns>
         <primary>1</primary>
       </key>
-      <column id="31" parent="4" name="id">
+      <column id="37" parent="4" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="32" parent="4" name="name">
+      <column id="38" parent="4" name="name">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="33" parent="4" name="position">
+      <column id="39" parent="4" name="position">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="34" parent="4" name="created_at">
+      <column id="40" parent="4" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="35" parent="4" name="updated_at">
+      <column id="41" parent="4" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="36" parent="4">
+      <key id="42" parent="4">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="37" parent="5" name="id">
+      <column id="43" parent="5" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="38" parent="5" name="category_id">
+      <column id="44" parent="5" name="category_id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="39" parent="5" name="locale">
+      <column id="45" parent="5" name="locale">
         <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="40" parent="5" name="created_at">
+      <column id="46" parent="5" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="41" parent="5" name="updated_at">
+      <column id="47" parent="5" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="42" parent="5" name="name">
+      <column id="48" parent="5" name="name">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <index id="43" parent="5" name="index_category_translations_on_category_id">
+      <index id="49" parent="5" name="index_category_translations_on_category_id">
         <columns>category_id</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <index id="44" parent="5" name="index_category_translations_on_locale">
+      <index id="50" parent="5" name="index_category_translations_on_locale">
         <columns>locale</columns>
         <desc-columns></desc-columns>
         <unique>1</unique>
       </index>
-      <key id="45" parent="5">
+      <key id="51" parent="5">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="46" parent="6" name="id">
+      <column id="52" parent="6" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="47" parent="6" name="categoryitem_id">
+      <column id="53" parent="6" name="categoryitem_id">
+        <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="48" parent="6" name="rest_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="49" parent="6" name="restaurant_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="50" parent="6" name="name">
+      <column id="54" parent="6" name="locale">
+        <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="51" parent="6" name="created_at">
+      <column id="55" parent="6" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="52" parent="6" name="updated_at">
+      <column id="56" parent="6" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="53" parent="6">
+      <column id="57" parent="6" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <index id="58" parent="6" name="index_categoryitem_translations_on_categoryitem_id">
+        <columns>categoryitem_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="59" parent="6" name="index_categoryitem_translations_on_locale">
+        <columns>locale</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="60" parent="6">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="54" parent="7" name="id">
+      <column id="61" parent="7" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="55" parent="7" name="city">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="56" parent="7" name="alias">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="57" parent="7" name="price">
+      <column id="62" parent="7" name="categoryitem_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="58" parent="7" name="created_at">
+      <column id="63" parent="7" name="rest_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="64" parent="7" name="restaurant_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="65" parent="7" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="66" parent="7" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="59" parent="7" name="updated_at">
+      <column id="67" parent="7" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="60" parent="7">
+      <key id="68" parent="7">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="61" parent="8" name="id">
+      <column id="69" parent="8" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="62" parent="8" name="user_id">
+      <column id="70" parent="8" name="city">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="71" parent="8" name="alias">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="72" parent="8" name="price">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="63" parent="8" name="country">
+      <column id="73" parent="8" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="74" parent="8" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="75" parent="8">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="76" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="77" parent="9" name="delivery_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="78" parent="9" name="locale">
+        <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="64" parent="8" name="city">
+      <column id="79" parent="9" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="80" parent="9" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="81" parent="9" name="city">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="65" parent="8" name="address">
+      <index id="82" parent="9" name="index_delivery_translations_on_delivery_id">
+        <columns>delivery_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="83" parent="9" name="index_delivery_translations_on_locale">
+        <columns>locale</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="84" parent="9">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="85" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="86" parent="10" name="user_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="87" parent="10" name="country">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="66" parent="8" name="def">
+      <column id="88" parent="10" name="city">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="89" parent="10" name="address">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="90" parent="10" name="def">
         <data-type>BOOLEAN(0,-1)|4</data-type>
       </column>
-      <column id="67" parent="8" name="created_at">
+      <column id="91" parent="10" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="68" parent="8" name="updated_at">
+      <column id="92" parent="10" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="69" parent="8">
+      <key id="93" parent="10">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="70" parent="9" name="id">
+      <column id="94" parent="11" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="71" parent="9" name="product_id">
+      <column id="95" parent="11" name="product_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="72" parent="9" name="rest_id">
+      <column id="96" parent="11" name="user_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="73" parent="9" name="categoryitem_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="74" parent="9" name="menu">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="75" parent="9" name="restaurant_menu_categories">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="76" parent="9" name="new">
-        <data-type>BOOLEAN(0,-1)|4</data-type>
-      </column>
-      <column id="77" parent="9" name="label">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="78" parent="9" name="content">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="79" parent="9" name="item_number">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="80" parent="9" name="inventory">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="81" parent="9" name="instock">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="82" parent="9" name="desired_stock">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="83" parent="9" name="price">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="84" parent="9" name="type_">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="85" parent="9" name="alias">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="86" parent="9" name="keywords">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="87" parent="9" name="src">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="88" parent="9" name="created_at">
+      <column id="97" parent="11" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="89" parent="9" name="updated_at">
+      <column id="98" parent="11" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="90" parent="9">
+      <index id="99" parent="11" name="index_favorites_on_product_id">
+        <columns>product_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="100" parent="11" name="index_favorites_on_user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="101" parent="11">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="91" parent="10" name="id">
+      <column id="102" parent="12" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="92" parent="10" name="restaurant_id">
+      <column id="103" parent="12" name="product_id">
+        <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="93" parent="10" name="label">
+      <column id="104" parent="12" name="locale">
+        <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="94" parent="10" name="description">
-        <data-type>TEXT(0,-1)|12</data-type>
-      </column>
-      <column id="95" parent="10" name="hash_">
-        <data-type>TEXT(0,-1)|12</data-type>
-      </column>
-      <column id="96" parent="10" name="status">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="97" parent="10" name="position">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="98" parent="10" name="budget">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="99" parent="10" name="openTime">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="100" parent="10" name="closeTime">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="101" parent="10" name="src">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="102" parent="10" name="min_amount_order">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="103" parent="10" name="rate">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="104" parent="10" name="totalHours">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="105" parent="10" name="around">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="106" parent="10" name="new">
-        <data-type>BOOLEAN(0,-1)|4</data-type>
-      </column>
-      <column id="107" parent="10" name="created_at">
+      <column id="105" parent="12" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="108" parent="10" name="updated_at">
+      <column id="106" parent="12" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="109" parent="10">
+      <column id="107" parent="12" name="label">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="108" parent="12" name="content">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <index id="109" parent="12" name="index_product_translations_on_product_id">
+        <columns>product_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="110" parent="12" name="index_product_translations_on_locale">
+        <columns>locale</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="111" parent="12">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="110" parent="11" name="restaurant_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="111" parent="11" name="subcategory_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="112" parent="12" name="version">
-        <mandatory>1</mandatory>
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <key id="113" parent="12">
-        <columns>version</columns>
-        <primary>1</primary>
-      </key>
-      <column id="114" parent="13" name="id">
+      <column id="112" parent="13" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="115" parent="13" name="shop_id">
+      <column id="113" parent="13" name="product_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="116" parent="13" name="category_id">
+      <column id="114" parent="13" name="rest_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="117" parent="13" name="rate">
+      <column id="115" parent="13" name="categoryitem_id">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="118" parent="13" name="budget">
-        <data-type>VARCHAR(0,-1)|12</data-type>
+      <column id="116" parent="13" name="menu">
+        <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="119" parent="13" name="new">
+      <column id="117" parent="13" name="restaurant_menu_categories">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="118" parent="13" name="new">
         <data-type>BOOLEAN(0,-1)|4</data-type>
       </column>
-      <column id="120" parent="13" name="min_amount_order">
+      <column id="119" parent="13" name="label">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="120" parent="13" name="content">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="121" parent="13" name="item_number">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="121" parent="13" name="hash_">
-        <data-type>TEXT(0,-1)|12</data-type>
-      </column>
-      <column id="122" parent="13" name="position">
+      <column id="122" parent="13" name="inventory">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="123" parent="13" name="description">
-        <data-type>TEXT(0,-1)|12</data-type>
-      </column>
-      <column id="124" parent="13" name="label">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="125" parent="13" name="totalHours">
+      <column id="123" parent="13" name="instock">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="126" parent="13" name="openTime">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="127" parent="13" name="closeTime">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="128" parent="13" name="around">
+      <column id="124" parent="13" name="desired_stock">
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="129" parent="13" name="status">
+      <column id="125" parent="13" name="price">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="130" parent="13" name="src">
+      <column id="126" parent="13" name="type_">
         <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="127" parent="13" name="alias">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="128" parent="13" name="keywords">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="129" parent="13" name="src">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="130" parent="13" name="favorite">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
       </column>
       <column id="131" parent="13" name="created_at">
         <mandatory>1</mandatory>
@@ -421,77 +437,296 @@
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="134" parent="14" name="name">
-        <data-type>(0,-1)|12</data-type>
-      </column>
-      <column id="135" parent="14" name="seq">
-        <data-type>(0,-1)|12</data-type>
-      </column>
-      <column id="136" parent="15" name="id">
+      <column id="134" parent="14" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="137" parent="15" name="category_id">
+      <column id="135" parent="14" name="restaurant_id">
+        <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="138" parent="15" name="subcategory_id">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="139" parent="15" name="name">
+      <column id="136" parent="14" name="locale">
+        <mandatory>1</mandatory>
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="140" parent="15" name="title">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="141" parent="15" name="position">
-        <data-type>INTEGER(0,-1)|4</data-type>
-      </column>
-      <column id="142" parent="15" name="src">
-        <data-type>VARCHAR(0,-1)|12</data-type>
-      </column>
-      <column id="143" parent="15" name="created_at">
+      <column id="137" parent="14" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="144" parent="15" name="updated_at">
+      <column id="138" parent="14" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="145" parent="15">
+      <column id="139" parent="14" name="label">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="140" parent="14" name="description">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <index id="141" parent="14" name="index_restaurant_translations_on_restaurant_id">
+        <columns>restaurant_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="142" parent="14" name="index_restaurant_translations_on_locale">
+        <columns>locale</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="143" parent="14">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="146" parent="16" name="id">
+      <column id="144" parent="15" name="id">
         <mandatory>1</mandatory>
         <data-type>INTEGER(0,-1)|4</data-type>
       </column>
-      <column id="147" parent="16" name="name">
+      <column id="145" parent="15" name="restaurant_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="146" parent="15" name="label">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="148" parent="16" name="image">
+      <column id="147" parent="15" name="description">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="148" parent="15" name="hash_">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="149" parent="15" name="status">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="149" parent="16" name="email">
+      <column id="150" parent="15" name="position">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="151" parent="15" name="budget">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="150" parent="16" name="mobile_number">
+      <column id="152" parent="15" name="openTime">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="151" parent="16" name="verification_code">
+      <column id="153" parent="15" name="closeTime">
         <data-type>VARCHAR(0,-1)|12</data-type>
       </column>
-      <column id="152" parent="16" name="is_verified">
+      <column id="154" parent="15" name="src">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="155" parent="15" name="min_amount_order">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="156" parent="15" name="rate">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="157" parent="15" name="totalHours">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="158" parent="15" name="around">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="159" parent="15" name="new">
         <data-type>BOOLEAN(0,-1)|4</data-type>
       </column>
-      <column id="153" parent="16" name="created_at">
+      <column id="160" parent="15" name="created_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <column id="154" parent="16" name="updated_at">
+      <column id="161" parent="15" name="updated_at">
         <mandatory>1</mandatory>
         <data-type>DATETIME(0,-1)|12</data-type>
       </column>
-      <key id="155" parent="16">
+      <key id="162" parent="15">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="163" parent="16" name="restaurant_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="164" parent="16" name="subcategory_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="165" parent="17" name="version">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <key id="166" parent="17">
+        <columns>version</columns>
+        <primary>1</primary>
+      </key>
+      <column id="167" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="168" parent="18" name="shop_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="169" parent="18" name="category_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="170" parent="18" name="rate">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="171" parent="18" name="budget">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="172" parent="18" name="new">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
+      </column>
+      <column id="173" parent="18" name="min_amount_order">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="174" parent="18" name="hash_">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="175" parent="18" name="position">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="176" parent="18" name="description">
+        <data-type>TEXT(0,-1)|12</data-type>
+      </column>
+      <column id="177" parent="18" name="label">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="178" parent="18" name="totalHours">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="179" parent="18" name="openTime">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="180" parent="18" name="closeTime">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="181" parent="18" name="around">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="182" parent="18" name="status">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="183" parent="18" name="src">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="184" parent="18" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="185" parent="18" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="186" parent="18">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="187" parent="19" name="name">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+      <column id="188" parent="19" name="seq">
+        <data-type>(0,-1)|12</data-type>
+      </column>
+      <column id="189" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="190" parent="20" name="category_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="191" parent="20" name="subcategory_id">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="192" parent="20" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="193" parent="20" name="title">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="194" parent="20" name="position">
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="195" parent="20" name="src">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="196" parent="20" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="197" parent="20" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="198" parent="20">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="199" parent="21" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="200" parent="21" name="subcategory_id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="201" parent="21" name="locale">
+        <mandatory>1</mandatory>
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="202" parent="21" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="203" parent="21" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="204" parent="21" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="205" parent="21" name="title">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <index id="206" parent="21" name="index_subcategory_translations_on_subcategory_id">
+        <columns>subcategory_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="207" parent="21" name="index_subcategory_translations_on_locale">
+        <columns>locale</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="208" parent="21">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="209" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>INTEGER(0,-1)|4</data-type>
+      </column>
+      <column id="210" parent="22" name="name">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="211" parent="22" name="image">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="212" parent="22" name="email">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="213" parent="22" name="mobile_number">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="214" parent="22" name="verification_code">
+        <data-type>VARCHAR(0,-1)|12</data-type>
+      </column>
+      <column id="215" parent="22" name="is_verified">
+        <data-type>BOOLEAN(0,-1)|4</data-type>
+      </column>
+      <column id="216" parent="22" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <column id="217" parent="22" name="updated_at">
+        <mandatory>1</mandatory>
+        <data-type>DATETIME(0,-1)|12</data-type>
+      </column>
+      <key id="218" parent="22">
         <columns>id</columns>
         <primary>1</primary>
       </key>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802175923) do
+ActiveRecord::Schema.define(version: 20160804123210) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.index ["locale"], name: "index_category_translations_on_locale"
   end
 
+  create_table "categoryitem_translations", force: :cascade do |t|
+    t.integer  "categoryitem_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.index ["categoryitem_id"], name: "index_categoryitem_translations_on_categoryitem_id"
+    t.index ["locale"], name: "index_categoryitem_translations_on_locale"
+  end
+
   create_table "categoryitems", force: :cascade do |t|
     t.integer  "categoryitem_id"
     t.integer  "rest_id"
@@ -56,6 +66,16 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "delivery_translations", force: :cascade do |t|
+    t.integer  "delivery_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "city"
+    t.index ["delivery_id"], name: "index_delivery_translations_on_delivery_id"
+    t.index ["locale"], name: "index_delivery_translations_on_locale"
+  end
+
   create_table "deliveryaddresses", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "country"
@@ -64,6 +84,26 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.boolean  "def"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_favorites_on_product_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "product_translations", force: :cascade do |t|
+    t.integer  "product_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "label"
+    t.string   "content"
+    t.index ["locale"], name: "index_product_translations_on_locale"
+    t.index ["product_id"], name: "index_product_translations_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -84,8 +124,20 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.string   "alias"
     t.string   "keywords"
     t.string   "src"
+    t.boolean  "favorite"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "restaurant_translations", force: :cascade do |t|
+    t.integer  "restaurant_id", null: false
+    t.string   "locale",        null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "label"
+    t.string   "description"
+    t.index ["locale"], name: "index_restaurant_translations_on_locale"
+    t.index ["restaurant_id"], name: "index_restaurant_translations_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -143,6 +195,17 @@ ActiveRecord::Schema.define(version: 20160802175923) do
     t.string   "src"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "subcategory_translations", force: :cascade do |t|
+    t.integer  "subcategory_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "name"
+    t.string   "title"
+    t.index ["locale"], name: "index_subcategory_translations_on_locale"
+    t.index ["subcategory_id"], name: "index_subcategory_translations_on_subcategory_id"
   end
 
   create_table "users", force: :cascade do |t|

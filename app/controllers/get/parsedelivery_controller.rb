@@ -1,9 +1,8 @@
 class Get::ParsedeliveryController < ApplicationController
 
-  GET_DELIVERY          = 'delivery-price'
-
   def parse
-    response  = RestClient.get $ROOT_URL + GET_DELIVERY
+    url = $ROOT_URL + GET_DELIVERY + "?lng=#{params[:lng]}"
+    response  = RestClient.get url
     response = getCorrectText(response)
     json = JSON.parse(response)
     deliveries  = json['regions']

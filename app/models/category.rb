@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-  has_many :subcategories
   translates :name
+
+  has_many :subcategories
 
 end

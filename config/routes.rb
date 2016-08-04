@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   # put 'verifications' => 'verifications#verify'
 
   namespace :get do
-    get '/all',       to: 'parse#parse'
-    get '/menu',      to: 'parsemenu#parse'
-    get '/product',   to: 'parseproduct#parse'
-    get '/delivery',  to: 'parsedelivery#parse'
-    get '/address',   to: 'parseaddress#parse'
+    get '/all',         to: 'parseall#parse'
+    get '/all_tr',      to: 'parsealltranslation#parse'
+
+    get '/menu',        to: 'parsemenu#parse'
+    get '/product',     to: 'parseproduct#parse'
+    get '/delivery',    to: 'parsedelivery#parse'
+    get '/address',     to: 'parseaddress#parse'
   end
 
   namespace :api do
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
 
       post '/send_phone',  to: 'users#send_phone'
       post '/verify',   to: 'users#verify'
+
+      resources :favorites
 
       resources :users
 

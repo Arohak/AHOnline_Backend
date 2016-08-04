@@ -1,9 +1,8 @@
-class ParseController < ApplicationController
-
-  GET_ALL               = 'get-data'
+class Get::ParseallController < ApplicationController
 
   def parse
-    response  = RestClient.get $ROOT_URL + GET_ALL
+    url = $ROOT_URL + GET_ALL + "?lng=#{params[:lng]}"
+    response  = RestClient.get url
     response = getCorrectText(response)
     json = JSON.parse(response)
 

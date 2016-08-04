@@ -11,7 +11,9 @@ class API::V1::UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    response = { data:    user,
+    data = user.to_json(include: :products)
+
+    response = { data:    JSON(data),
                  result:  {status: "SUCCESS",
                            message: ""} }
 
