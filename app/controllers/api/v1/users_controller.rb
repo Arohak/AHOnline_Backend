@@ -21,7 +21,7 @@ class API::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create
+    user = User.create name: "Guest"
 
     response = { data:    user,
                  result:  {status: "SUCCESS",

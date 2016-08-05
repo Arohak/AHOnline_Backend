@@ -5,11 +5,15 @@ Rails.application.routes.draw do
 
   namespace :get do
     get '/all',         to: 'parseall#parse'
-    get '/all_tr',      to: 'parsealltranslation#parse'
 
     get '/menu',        to: 'parsemenu#parse'
+    get '/menu_tr',     to: 'parsemenu#translation'
+
     get '/product',     to: 'parseproduct#parse'
+    get '/product_tr',  to: 'parseproduct#translation'
+
     get '/delivery',    to: 'parsedelivery#parse'
+
     get '/address',     to: 'parseaddress#parse'
   end
 
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
       post '/send_phone',  to: 'users#send_phone'
       post '/verify',   to: 'users#verify'
 
-      resources :favorites
+      resources :favorites, only: [:index, :update]
 
       resources :users
 

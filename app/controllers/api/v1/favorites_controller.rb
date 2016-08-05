@@ -19,28 +19,33 @@ class API::V1::FavoritesController < ApplicationController
     end
   end
 
-  def create
-    if params[:user_id] && params[:product_id]
-      Favorite.create(user_id: params[:user_id], product_id: params[:product_id])
+  # def create
+  #   if params[:user_id] && params[:product_id]
+  #     Favorite.create(user_id: params[:user_id], product_id: params[:product_id], state: true)
+  #
+  #     response = { data:    '',
+  #                  result:  {status: 'SUCCESS',
+  #                            message: ''} }
+  #
+  #     render json: response
+  #   elsif
+  #   response = { data:    '',
+  #                result:  {status: 'ERROR',
+  #                          message: 'parameter invalid'} }
+  #
+  #     render json: response
+  #   end
+  # end
 
-      response = { data:    '',
-                   result:  {status: 'SUCCESS',
-                             message: ''} }
-
-      render json: response
-    elsif
-    response = { data:    '',
-                 result:  {status: 'ERROR',
-                           message: 'parameter invalid'} }
-
-      render json: response
-    end
-  end
-
-  def destroy
+  def update
     if params[:user_id]
-      Favorite.find_by(user_id: params[:user_id], product_id: params[:id]).destroy
+      favorite = Favorite.find_by(user_id: params[:user_id], product_id: params[:id])
 
+      if favorite
+        favorite.update(state: !favorite.state)
+      else
+        Favorite.create(user_id: params[:user_id], product_id: params[:id], state: true)
+      end
       response = { data:    '',
                    result:  {status: 'SUCCESS',
                              message: ''} }

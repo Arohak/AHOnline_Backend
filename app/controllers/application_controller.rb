@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   before_filter :set_locale
+  skip_before_filter  :verify_authenticity_token
 
   $ROOT_URL             = "http://api.menu.am/index.php/index/"
 

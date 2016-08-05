@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804123210) do
+ActiveRecord::Schema.define(version: 20160805112229) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160804123210) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
     t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,13 +52,11 @@ ActiveRecord::Schema.define(version: 20160804123210) do
     t.integer  "categoryitem_id"
     t.integer  "rest_id"
     t.integer  "restaurant_id"
-    t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   create_table "deliveries", force: :cascade do |t|
-    t.string   "city"
     t.string   "alias"
     t.integer  "price"
     t.datetime "created_at", null: false
@@ -89,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160804123210) do
   create_table "favorites", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "user_id"
+    t.boolean  "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_favorites_on_product_id"
@@ -113,8 +111,6 @@ ActiveRecord::Schema.define(version: 20160804123210) do
     t.integer  "menu"
     t.integer  "restaurant_menu_categories"
     t.boolean  "new"
-    t.string   "label"
-    t.string   "content"
     t.integer  "item_number"
     t.integer  "inventory"
     t.integer  "instock"
@@ -142,8 +138,6 @@ ActiveRecord::Schema.define(version: 20160804123210) do
 
   create_table "restaurants", force: :cascade do |t|
     t.integer  "restaurant_id"
-    t.string   "label"
-    t.text     "description"
     t.text     "hash_"
     t.string   "status"
     t.integer  "position"
@@ -189,8 +183,6 @@ ActiveRecord::Schema.define(version: 20160804123210) do
   create_table "subcategories", force: :cascade do |t|
     t.integer  "category_id"
     t.integer  "subcategory_id"
-    t.string   "name"
-    t.string   "title"
     t.integer  "position"
     t.string   "src"
     t.datetime "created_at",     null: false
