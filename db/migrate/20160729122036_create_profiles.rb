@@ -1,6 +1,6 @@
 class CreateProfiles < ActiveRecord::Migration[5.0]
   def change
-    create_table :users do |t|
+    create_table :profiles do |t|
       t.string  :name
       t.string  :image
       t.string  :email
@@ -13,3 +13,4 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
     end
   end
 end
+

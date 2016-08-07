@@ -4,6 +4,7 @@ class CreateDeliveryaddresses < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string  :country
       t.string  :city
+      t.string  :alias
       t.string  :address
       t.boolean :def
 

@@ -3,7 +3,7 @@ class Get::ParseproductController < ApplicationController
   def parse
     Restaurant.all.each do |r|
       r.categoryitems.each do |m|
-        url = $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}" + "?lng=#{params[:lng]}"
+        url = $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}" + "&lng=#{params[:lng]}"
         response  = RestClient.get url
         response = getCorrectText(response)
         json = JSON.parse(response)
@@ -19,7 +19,7 @@ class Get::ParseproductController < ApplicationController
   def translation
     Restaurant.all.each do |r|
       r.categoryitems.each do |m|
-        url = $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}" + "?lng=#{params[:lng]}"
+        url = $ROOT_URL + "get-restaurant-menu?rest=#{r.restaurant_id.to_s}&restaurant_menu_categories=#{m.rest_id.to_s}" + "&lng=#{params[:lng]}"
         response  = RestClient.get url
         response = getCorrectText(response)
         json = JSON.parse(response)

@@ -2,32 +2,26 @@ class API::V1::UsersController < ApplicationController
 
   def index
     users = User.all
-    response = { data:    users,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
 
-    render json: response
+    render_response(users, 'SUCCESS', '')
   end
 
   def show
     user = User.find(params[:id])
-    data = user.to_json(include: :products)
+    product_ids = Favorite.where(user_id: params[:id], state: true).pluck(:product_id)
+    products = Product.find(product_ids)
+    data = {user: user, favorites: products}
 
-    response = { data:    JSON(data),
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    render_response(data, 'SUCCESS', '')
   end
 
   def create
-    user = User.create name: "Guest"
-
-    response = { data:    user,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    user = User.new
+    if user.save
+      render_response(user, 'SUCCESS', '')
+    else
+      render_response('', 'ERROR', '')
+    end
   end
 
   def send_phone
@@ -47,18 +41,10 @@ class API::V1::UsersController < ApplicationController
     #     :to => to,
     #     :body => "Your verification code is #{user.verification_code}."
     # )
-      response = { data:    '',
-                   result:  {status: 'SUCCESS',
-                             message: 'A verification code has been sent to your mobile. Please fill it in below.'} }
 
-      render json: response
+      render_response('', 'SUCCESS', 'A verification code has been sent to your mobile. Please fill it in below.')
     else
-      response = { data:    '',
-                   result:  {status: 'ERROR',
-                             message: 'Invalid user.'} }
-
-      render json: response
-
+      render_response('', 'ERROR', 'Invalid user.')
     end
   end
 
@@ -68,19 +54,9 @@ class API::V1::UsersController < ApplicationController
       user.verification_code = ''
       user.save
 
-      response = { data:    user,
-                   result:  {status: "SUCCESS",
-                             message: 'Thank you for verifying your mobile number.'} }
-
-      render json: response
-
+      render_response('', 'SUCCESS', 'Thank you for verifying your mobile number.')
     else
-      response = { data:    '',
-                   result:  {status: "ERROR",
-                             message: 'Invalid verification code.'} }
-
-      render json: response
-
+      render_response('', 'ERROR', 'Invalid verification code.')
     end
   end
 

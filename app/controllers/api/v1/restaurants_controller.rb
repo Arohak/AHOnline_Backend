@@ -24,22 +24,14 @@ class API::V1::RestaurantsController < ApplicationController
 
     data = @restaurants.to_json(include: [:categoryitems, :addresses])
 
-    response = { data: JSON(data),
-                 result: {status: "SUCCESS",
-                          message: ""} }
-
-    render json: response
+    render_response(JSON(data), 'SUCCESS', '')
   end
 
   def show
     restaurant = Restaurant.find(params[:id])
     data = restaurant.to_json(include: [:categoryitems, :addresses])
 
-    response = { data:    JSON(data),
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    render_response(JSON(data), 'SUCCESS', '')
   end
 
   def nearst
@@ -84,11 +76,7 @@ class API::V1::RestaurantsController < ApplicationController
       end
     end
 
-    response = { data:    restaurants,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    render_response(restaurants, 'SUCCESS', '')
   end
 
   def distance_between(lat1, lon1, lat2, lon2)

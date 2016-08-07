@@ -5,37 +5,11 @@ class API::V1::FavoritesController < ApplicationController
       favorite_ids = Favorite.where(user_id: params[:user_id]).ids
       products = Product.find(favorite_ids)
 
-      response = { data:    products,
-                   result:  {status: 'SUCCESS',
-                             message: ''} }
-
-      render json: response
+      render_response(products, 'SUCCESS', '')
     elsif
-    response = { data:    '',
-                 result:  {status: 'ERROR',
-                           message: 'parameter invalid'} }
-
-      render json: response
+      render_response(products, 'ERROR', 'parameter invalid')
     end
   end
-
-  # def create
-  #   if params[:user_id] && params[:product_id]
-  #     Favorite.create(user_id: params[:user_id], product_id: params[:product_id], state: true)
-  #
-  #     response = { data:    '',
-  #                  result:  {status: 'SUCCESS',
-  #                            message: ''} }
-  #
-  #     render json: response
-  #   elsif
-  #   response = { data:    '',
-  #                result:  {status: 'ERROR',
-  #                          message: 'parameter invalid'} }
-  #
-  #     render json: response
-  #   end
-  # end
 
   def update
     if params[:user_id]
@@ -46,17 +20,10 @@ class API::V1::FavoritesController < ApplicationController
       else
         Favorite.create(user_id: params[:user_id], product_id: params[:id], state: true)
       end
-      response = { data:    '',
-                   result:  {status: 'SUCCESS',
-                             message: ''} }
 
-      render json: response
+      render_response('', 'SUCCESS', '')
     elsif
-    response = { data:    '',
-                 result:  {status: 'ERROR',
-                           message: 'parameter invalid'} }
-
-      render json: response
+      render_response(products, 'ERROR', 'parameter invalid')
     end
   end
 

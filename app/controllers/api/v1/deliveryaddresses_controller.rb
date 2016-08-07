@@ -2,11 +2,8 @@ class API::V1::DeliveryaddressesController < ApplicationController
 
   def index
     addresses = Deliveryaddress.all
-    response = { data:    addresses,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
 
-    render json: response
+    render_response(addresses, 'SUCCESS', '')
   end
 
   def update
@@ -14,28 +11,22 @@ class API::V1::DeliveryaddressesController < ApplicationController
     address.update_attributes(user_id: params[:user_id],
                               country: params[:country],
                               city:    params[:city],
+                              alias:   params[:alias],
                               address: params[:address],
                               def:     params[:def])
 
-    response = { data:    address,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    render_response(address, 'SUCCESS', '')
   end
 
   def create
     address = Deliveryaddress.create(user_id: params[:user_id],
                                      country: params[:country],
                                      city:    params[:city],
+                                     alias:   params[:alias],
                                      address: params[:address],
                                      def:     params[:def])
 
-    response = { data:    address,
-                 result:  {status: "SUCCESS",
-                           message: ""} }
-
-    render json: response
+    render_response(address, 'SUCCESS', '')
   end
 
 end
