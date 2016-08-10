@@ -53,8 +53,9 @@ class API::V1::UsersController < ApplicationController
       user.is_verified = true
       user.verification_code = ''
       user.save
+      data = {user: user}
 
-      render_response('', 'SUCCESS', 'Thank you for verifying your mobile number.')
+      render_response(data, 'SUCCESS', 'Thank you for verifying your mobile number.')
     else
       render_response('', 'ERROR', 'Invalid verification code.')
     end
