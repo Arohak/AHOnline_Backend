@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807191834) do
+ActiveRecord::Schema.define(version: 20160818150731) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -94,6 +94,29 @@ ActiveRecord::Schema.define(version: 20160807191834) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "dateCreate"
+    t.string   "mobileNumber"
+    t.string   "deliveryAddress"
+    t.string   "deliveryCity"
+    t.string   "deliveryAlias"
+    t.string   "deliveryDate"
+    t.string   "payment"
+    t.decimal  "ordersTotalPrice"
+    t.decimal  "deliveryPrice"
+    t.decimal  "totalPrice"
+    t.boolean  "is_verified"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "orders_products", id: false, force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+  end
+
   create_table "product_translations", force: :cascade do |t|
     t.integer  "product_id", null: false
     t.string   "locale",     null: false
@@ -124,17 +147,6 @@ ActiveRecord::Schema.define(version: 20160807191834) do
     t.boolean  "favorite"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.string   "name"
-    t.string   "image"
-    t.string   "email"
-    t.integer  "mobile_number"
-    t.string   "verification_code"
-    t.boolean  "is_verified"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   create_table "restaurant_translations", force: :cascade do |t|
