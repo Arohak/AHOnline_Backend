@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       post '/send_phone',  to: 'users#send_phone'
       post '/verify',   to: 'users#verify'
 
+      resources :orders, only: [:index, :update, :create]
+
       resources :favorites, only: [:index, :update]
 
       resources :users

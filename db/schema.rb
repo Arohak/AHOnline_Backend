@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818150731) do
+ActiveRecord::Schema.define(version: 20160819081007) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -94,27 +94,28 @@ ActiveRecord::Schema.define(version: 20160818150731) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "historyproducts", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "count_buy"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.string   "dateCreate"
-    t.string   "mobileNumber"
-    t.string   "deliveryAddress"
-    t.string   "deliveryCity"
-    t.string   "deliveryAlias"
-    t.string   "deliveryDate"
+    t.string   "date_create"
+    t.string   "mobile_number"
+    t.string   "delivery_address"
+    t.string   "delivery_city"
+    t.string   "delivery_alias"
+    t.string   "delivery_date"
     t.string   "payment"
-    t.decimal  "ordersTotalPrice"
-    t.decimal  "deliveryPrice"
-    t.decimal  "totalPrice"
+    t.decimal  "orders_total_price"
+    t.decimal  "delivery_price"
+    t.decimal  "total_price"
     t.boolean  "is_verified"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  create_table "orders_products", id: false, force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "product_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "product_translations", force: :cascade do |t|
