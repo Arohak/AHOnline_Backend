@@ -1,4 +1,4 @@
-class Get::ParseallController < ApplicationController
+class Get::ParsesubcategoriesController < ApplicationController
 
   def parse
     url = $ROOT_URL + GET_ALL + "?lng=#{params[:lng]}"

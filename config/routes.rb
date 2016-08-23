@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # put 'verifications' => 'verifications#verify'
 
   namespace :get do
-    get '/all',         to: 'parseall#parse'
+    get '/categories',    to: 'parsecategories#parse'
+
+    get '/subcategories', to: 'parsesubcategories#parse'
 
     get '/menu',        to: 'parsemenu#parse'
     get '/menu_tr',     to: 'parsemenu#translation'
