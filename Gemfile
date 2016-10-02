@@ -65,6 +65,16 @@ group :development do
   # Push
   gem 'private_pub'
   gem 'thin'
+
+  # Capistrato
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+
+  #for secrets.yml
+  gem 'dotenv'
+  gem 'dotenv-deployment', require: 'dotenv/deployment'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
