@@ -75,6 +75,10 @@ group :development do
   #for secrets.yml
   gem 'dotenv'
   gem 'dotenv-deployment', require: 'dotenv/deployment'
+
+  #for javascript
+  gem 'therubyracer'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
