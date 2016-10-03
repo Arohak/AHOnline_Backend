@@ -13,9 +13,15 @@ server '188.166.52.137', user: 'deployer', roles: %w{app db web}, primary: true
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
+<<<<<<< HEAD
 role :app, %w{deployer@188.166.52.137}
 role :web, %w{deployer@188.166.52.137}
 role :db,  %w{deployer@188.166.52.137}
+=======
+role :app, %w{araha@146.148.118.80}
+role :web, %w{araha@146.148.118.80}
+role :db,  %w{araha@146.148.118.80}
+>>>>>>> change host ip
 
 set :rails_env, :production
 
@@ -28,7 +34,7 @@ set :rails_env, :production
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/Users/test/.ssh/id_rsa),
+   keys: %w(/Users/araha/.ssh/id_rsa),
    forward_agent: true,
    auth_methods: %w(publickey password),
    port: 4321
