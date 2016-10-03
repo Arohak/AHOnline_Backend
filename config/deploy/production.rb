@@ -3,7 +3,11 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
+<<<<<<< HEAD
 server '188.166.52.137', user: 'deployer', roles: %w{app db web}, primary: true
+=======
+server '146.148.118.80', user: 'araha', roles: %w{app db web}, primary: true
+>>>>>>> Update production.rb
 
 # role-based syntax
 # ==================
@@ -13,15 +17,9 @@ server '188.166.52.137', user: 'deployer', roles: %w{app db web}, primary: true
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-<<<<<<< HEAD
 role :app, %w{deployer@188.166.52.137}
 role :web, %w{deployer@188.166.52.137}
 role :db,  %w{deployer@188.166.52.137}
-=======
-role :app, %w{araha@146.148.118.80}
-role :web, %w{araha@146.148.118.80}
-role :db,  %w{araha@146.148.118.80}
->>>>>>> change host ip
 
 set :rails_env, :production
 
