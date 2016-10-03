@@ -5,14 +5,16 @@ set :application, 'ahonline'
 set :repo_url, 'git@github.com:Arohak/AHOnline_Backend.git'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deployer/ahonline'
-set :deploy_user, 'deployer'
+set :deploy_to, '/home/araha/ahonline'
+set :deploy_user, 'araha'
 
 # Default value for :linked_files is []
 append :linked_files, 'config/database.yml', 'config/private_pub.yml', '.env'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+
+set :rails_env, :production
 
 namespace :deploy do
   desc 'Restart application'
