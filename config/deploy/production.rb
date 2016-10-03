@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '146.148.118.80', user: 'deploy', roles: %w{app db web}, primary: true
+server '146.148.118.80', user: 'araha', roles: %w{app db web}, primary: true
 
 # role-based syntax
 # ==================
