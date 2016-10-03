@@ -14,8 +14,6 @@ append :linked_files, 'config/database.yml', 'config/private_pub.yml', '.env'
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
 
-set :rails_env, :production
-
 namespace :deploy do
   desc 'Restart application'
   task :restart do
