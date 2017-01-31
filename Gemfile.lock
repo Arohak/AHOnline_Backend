@@ -277,7 +277,7 @@ DEPENDENCIES
   pg
   phonelib
   private_pub
-  puma (~> 3.0)
+  puma (~> 3.6.0)
   rails (~> 5.0.0)
   rails_12factor
   rest-client
@@ -295,4 +295,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.2
