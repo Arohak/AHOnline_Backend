@@ -5,9 +5,6 @@
 
 <<<<<<< HEAD
 server '188.166.52.137', user: 'deployer', roles: %w{app db web}, primary: true
-=======
-server '146.148.118.80', user: 'araha', roles: %w{app db web}, primary: true
->>>>>>> Update production.rb
 
 # role-based syntax
 # ==================
