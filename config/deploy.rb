@@ -1,11 +1,11 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'ahonline'
+set :application, 'buyonline'
 set :repo_url, 'git@github.com:Arohak/AHOnline_Backend.git'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deployer/ahonline'
+set :deploy_to, '/home/deployer/buyonline'
 set :deploy_user, 'deployer'
 
 # Default value for :linked_files is []
