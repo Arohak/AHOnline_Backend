@@ -1,6 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+
 set :application, 'buyonline'
 set :repo_url, 'git@github.com:Arohak/AHOnline_Backend.git'
 
